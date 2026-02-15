@@ -374,7 +374,7 @@ RT_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/librt.so
 SETUPTOOLS_DEB_LAYOUT:BOOL=ON
 
 //Name of the computer/site where compile is being run
-SITE:STRING=ip-172-31-13-223
+SITE:STRING=ip-172-31-9-49
 
 //LSB Distrib tag
 UBUNTU:BOOL=TRUE
@@ -402,18 +402,6 @@ ball_chaser_SOURCE_DIR:STATIC=/home/ubuntu/catkin_ws/src/ball_chaser
 
 //The directory containing a CMake configuration file for catkin.
 catkin_DIR:PATH=/opt/ros/noetic/share/catkin/cmake
-
-//The directory containing a CMake configuration file for class_loader.
-class_loader_DIR:PATH=/opt/ros/noetic/share/class_loader/cmake
-
-//The directory containing a CMake configuration file for controller_interface.
-controller_interface_DIR:PATH=/opt/ros/noetic/share/controller_interface/cmake
-
-//The directory containing a CMake configuration file for controller_manager.
-controller_manager_DIR:PATH=/opt/ros/noetic/share/controller_manager/cmake
-
-//The directory containing a CMake configuration file for controller_manager_msgs.
-controller_manager_msgs_DIR:PATH=/opt/ros/noetic/share/controller_manager_msgs/cmake
 
 //The directory containing a CMake configuration file for cpp_common.
 cpp_common_DIR:PATH=/opt/ros/noetic/share/cpp_common/cmake
@@ -494,9 +482,6 @@ gtest_hide_internal_symbols:BOOL=OFF
 //Dependencies for the target
 gtest_main_LIB_DEPENDS:STATIC=general;gtest;
 
-//The directory containing a CMake configuration file for hardware_interface.
-hardware_interface_DIR:PATH=/opt/ros/noetic/share/hardware_interface/cmake
-
 //Path to a library.
 lib:FILEPATH=/opt/ros/noetic/lib/libxmlrpcpp.so
 
@@ -511,9 +496,6 @@ my_robot_BINARY_DIR:STATIC=/home/ubuntu/catkin_ws/build/my_robot
 
 //Value Computed by CMake
 my_robot_SOURCE_DIR:STATIC=/home/ubuntu/catkin_ws/src/my_robot
-
-//The directory containing a CMake configuration file for pluginlib.
-pluginlib_DIR:PATH=/opt/ros/noetic/share/pluginlib/cmake
 
 //The directory containing a CMake configuration file for rosconsole.
 rosconsole_DIR:PATH=/opt/ros/noetic/share/rosconsole/cmake
@@ -530,20 +512,8 @@ roscpp_traits_DIR:PATH=/opt/ros/noetic/share/roscpp_traits/cmake
 //The directory containing a CMake configuration file for rosgraph_msgs.
 rosgraph_msgs_DIR:PATH=/opt/ros/noetic/share/rosgraph_msgs/cmake
 
-//The directory containing a CMake configuration file for roslib.
-roslib_DIR:PATH=/opt/ros/noetic/share/roslib/cmake
-
-//The directory containing a CMake configuration file for rospack.
-rospack_DIR:PATH=/opt/ros/noetic/share/rospack/cmake
-
 //The directory containing a CMake configuration file for rostime.
 rostime_DIR:PATH=/opt/ros/noetic/share/rostime/cmake
-
-//Value Computed by CMake
-simple_arm_BINARY_DIR:STATIC=/home/ubuntu/catkin_ws/build/simple_arm
-
-//Value Computed by CMake
-simple_arm_SOURCE_DIR:STATIC=/home/ubuntu/catkin_ws/src/simple_arm
 
 //The directory containing a CMake configuration file for std_msgs.
 std_msgs_DIR:PATH=/opt/ros/noetic/share/std_msgs/cmake
@@ -699,7 +669,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=8
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=7
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP
