@@ -67,14 +67,14 @@ set(my_robot_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("FALSE" STREQUAL "TRUE")
-  set(my_robot_SOURCE_PREFIX /home/ubuntu/catkin_ws/src/my_robot)
-  set(my_robot_DEVEL_PREFIX /home/ubuntu/catkin_ws/devel)
+  set(my_robot_SOURCE_PREFIX /home/vboxuser/catkin_ws/src/my_robot)
+  set(my_robot_DEVEL_PREFIX /home/vboxuser/catkin_ws/devel)
   set(my_robot_INSTALL_PREFIX "")
   set(my_robot_PREFIX ${my_robot_DEVEL_PREFIX})
 else()
   set(my_robot_SOURCE_PREFIX "")
   set(my_robot_DEVEL_PREFIX "")
-  set(my_robot_INSTALL_PREFIX /home/ubuntu/catkin_ws/install)
+  set(my_robot_INSTALL_PREFIX /home/vboxuser/catkin_ws/install)
   set(my_robot_PREFIX ${my_robot_INSTALL_PREFIX})
 endif()
 
@@ -118,7 +118,7 @@ endif()
 
 set(libraries "")
 foreach(library ${libraries})
-  # keep build configuration keywords, generator expressions, target names, and absolute libraries as-is
+  # keep build configuration keywords, target names and absolute libraries as-is
   if("${library}" MATCHES "^(debug|optimized|general)$")
     list(APPEND my_robot_LIBRARIES ${library})
   elseif(${library} MATCHES "^-l")
@@ -146,8 +146,6 @@ foreach(library ${libraries})
       target_link_options("${interface_target_name}" INTERFACE "${library}")
     endif()
     list(APPEND my_robot_LIBRARIES "${interface_target_name}")
-  elseif(${library} MATCHES "^\\$<")
-    list(APPEND my_robot_LIBRARIES ${library})
   elseif(TARGET ${library})
     list(APPEND my_robot_LIBRARIES ${library})
   elseif(IS_ABSOLUTE ${library})
@@ -156,7 +154,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/ubuntu/catkin_ws/install/lib;/opt/ros/noetic/lib)
+    foreach(path /home/vboxuser/catkin_ws/install/lib;/home/vboxuser/catkin_ws/devel/lib;/opt/ros/kinetic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)
@@ -213,7 +211,7 @@ foreach(depend ${depends})
   _unpack_libraries_with_build_configuration(my_robot_LIBRARIES ${my_robot_LIBRARIES})
 
   _list_append_unique(my_robot_LIBRARY_DIRS ${${my_robot_dep}_LIBRARY_DIRS})
-  _list_append_deduplicate(my_robot_EXPORTED_TARGETS ${${my_robot_dep}_EXPORTED_TARGETS})
+  list(APPEND my_robot_EXPORTED_TARGETS ${${my_robot_dep}_EXPORTED_TARGETS})
 endforeach()
 
 set(pkg_cfg_extras "")

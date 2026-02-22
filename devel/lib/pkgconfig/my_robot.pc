@@ -1,4 +1,4 @@
-prefix=/home/ubuntu/catkin_ws/devel
+prefix=/home/vboxuser/catkin_ws/devel
 
 Name: my_robot
 Description: Description of my_robot
