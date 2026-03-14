@@ -33,6 +33,7 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "/usr/lib/x86_64-linux-gnu/pkgconfig/../../../include/ignition/msgs5"
   "/usr/lib/x86_64-linux-gnu/pkgconfig/../../../include/ignition/math6"
   "/usr/lib/x86_64-linux-gnu/pkgconfig/../../../include/ignition/cmake2"
+  "/usr/lib/x86_64-linux-gnu/pkgconfig/../../../include/sdformat-9.10"
   "pgm_map_creator/msgs"
   )
 

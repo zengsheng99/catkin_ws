@@ -445,7 +445,7 @@ boost_system_DIR:PATH=/usr/lib/x86_64-linux-gnu/cmake/boost_system-1.71.0
 catkin_DIR:PATH=/opt/ros/noetic/share/catkin/cmake
 
 //Dependencies for the target
-collision_map_creator_LIB_DEPENDS:STATIC=general;collision_map_creator_msgs;general;Boost::system;general;gazebo_transport;general;gazebo_physics;general;gazebo_sensors;general;gazebo_rendering;general;gazebo_gui;general;gazebo_client;general;gazebo_msgs;general;gazebo_common;general;gazebo;general;boost_thread;general;boost_system;general;boost_filesystem;general;boost_program_options;general;boost_regex;general;boost_iostreams;general;boost_date_time;general;sdformat9;general;tbb;general;atomic;general;ignition-fuel_tools4;general;ignition-transport8;general;uuid;general;ignition-msgs5;general;protobuf;general;ignition-math6;
+collision_map_creator_LIB_DEPENDS:STATIC=general;collision_map_creator_msgs;general;Boost::system;general;gazebo_transport;general;gazebo_physics;general;gazebo_sensors;general;gazebo_rendering;general;gazebo_gui;general;gazebo_client;general;gazebo_msgs;general;gazebo_common;general;gazebo;general;boost_thread;general;boost_system;general;boost_filesystem;general;boost_program_options;general;boost_regex;general;boost_iostreams;general;boost_date_time;general;sdformat9;general;tbb;general;atomic;general;ignition-fuel_tools4;general;ignition-transport8;general;uuid;general;ignition-msgs5;general;protobuf;general;ignition-math6;general;sdformat9;general;ignition-math6;
 
 //Dependencies for the target
 collision_map_creator_msgs_LIB_DEPENDS:STATIC=general;/usr/lib/x86_64-linux-gnu/libprotobuf.so;
@@ -627,6 +627,12 @@ pkgcfg_lib_GAZEBO_tbb:FILEPATH=/usr/lib/x86_64-linux-gnu/libtbb.so
 
 //Path to a library.
 pkgcfg_lib_GAZEBO_uuid:FILEPATH=/usr/lib/x86_64-linux-gnu/libuuid.so
+
+//Path to a library.
+pkgcfg_lib_SDF_ignition-math6:FILEPATH=/usr/lib/x86_64-linux-gnu/libignition-math6.so
+
+//Path to a library.
+pkgcfg_lib_SDF_sdformat9:FILEPATH=/usr/lib/x86_64-linux-gnu/libsdformat9.so
 
 //The directory containing a CMake configuration file for rosconsole.
 rosconsole_DIR:PATH=/opt/ros/noetic/share/rosconsole/cmake
@@ -956,27 +962,41 @@ Protobuf_PROTOC_EXECUTABLE-ADVANCED:INTERNAL=1
 Protobuf_PROTOC_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: Protobuf_PROTOC_LIBRARY_RELEASE
 Protobuf_PROTOC_LIBRARY_RELEASE-ADVANCED:INTERNAL=1
-SDF_CFLAGS:INTERNAL=
+SDF_CFLAGS:INTERNAL=-std=c++17;-I/usr/lib/x86_64-linux-gnu/pkgconfig/../../..//include/sdformat-9.10;-I/usr/lib/x86_64-linux-gnu/pkgconfig/../../..//include/ignition/math6;-I/usr/lib/x86_64-linux-gnu/pkgconfig/../../..//include/ignition/cmake2
 SDF_CFLAGS_I:INTERNAL=
-SDF_CFLAGS_OTHER:INTERNAL=
-SDF_FOUND:INTERNAL=
-SDF_INCLUDEDIR:INTERNAL=
-SDF_LIBDIR:INTERNAL=
+SDF_CFLAGS_OTHER:INTERNAL=-std=c++17
+SDF_FOUND:INTERNAL=1
+SDF_INCLUDEDIR:INTERNAL=/usr/lib/x86_64-linux-gnu/pkgconfig/../../..//include
+SDF_INCLUDE_DIRS:INTERNAL=/usr/lib/x86_64-linux-gnu/pkgconfig/../../..//include/sdformat-9.10;/usr/lib/x86_64-linux-gnu/pkgconfig/../../..//include/ignition/math6;/usr/lib/x86_64-linux-gnu/pkgconfig/../../..//include/ignition/cmake2
+SDF_LDFLAGS:INTERNAL=-L/usr/lib/x86_64-linux-gnu/pkgconfig/../../..//lib/x86_64-linux-gnu;-lsdformat9;-lignition-math6
+SDF_LDFLAGS_OTHER:INTERNAL=
+SDF_LIBDIR:INTERNAL=/usr/lib/x86_64-linux-gnu/pkgconfig/../../..//lib/x86_64-linux-gnu
+SDF_LIBRARIES:INTERNAL=sdformat9;ignition-math6
+SDF_LIBRARY_DIRS:INTERNAL=/usr/lib/x86_64-linux-gnu/pkgconfig/../../..//lib/x86_64-linux-gnu
 SDF_LIBS:INTERNAL=
 SDF_LIBS_L:INTERNAL=
 SDF_LIBS_OTHER:INTERNAL=
 SDF_LIBS_PATHS:INTERNAL=
-SDF_MODULE_NAME:INTERNAL=
-SDF_PREFIX:INTERNAL=
-SDF_STATIC_CFLAGS:INTERNAL=
+SDF_MODULE_NAME:INTERNAL=sdformat9
+SDF_PREFIX:INTERNAL=/usr/lib/x86_64-linux-gnu/pkgconfig/../../../
+SDF_STATIC_CFLAGS:INTERNAL=-std=c++17;-I/usr/lib/x86_64-linux-gnu/pkgconfig/../../..//include/sdformat-9.10;-I/usr/lib/x86_64-linux-gnu/pkgconfig/../../..//include/ignition/math6;-I/usr/lib/x86_64-linux-gnu/pkgconfig/../../..//include/ignition/cmake2
 SDF_STATIC_CFLAGS_I:INTERNAL=
-SDF_STATIC_CFLAGS_OTHER:INTERNAL=
+SDF_STATIC_CFLAGS_OTHER:INTERNAL=-std=c++17
+SDF_STATIC_INCLUDE_DIRS:INTERNAL=/usr/lib/x86_64-linux-gnu/pkgconfig/../../..//include/sdformat-9.10;/usr/lib/x86_64-linux-gnu/pkgconfig/../../..//include/ignition/math6;/usr/lib/x86_64-linux-gnu/pkgconfig/../../..//include/ignition/cmake2
+SDF_STATIC_LDFLAGS:INTERNAL=-L/usr/lib/x86_64-linux-gnu/pkgconfig/../../..//lib/x86_64-linux-gnu;-lsdformat9;-lignition-math6
+SDF_STATIC_LDFLAGS_OTHER:INTERNAL=
 SDF_STATIC_LIBDIR:INTERNAL=
+SDF_STATIC_LIBRARIES:INTERNAL=sdformat9;ignition-math6
+SDF_STATIC_LIBRARY_DIRS:INTERNAL=/usr/lib/x86_64-linux-gnu/pkgconfig/../../..//lib/x86_64-linux-gnu
 SDF_STATIC_LIBS:INTERNAL=
 SDF_STATIC_LIBS_L:INTERNAL=
 SDF_STATIC_LIBS_OTHER:INTERNAL=
 SDF_STATIC_LIBS_PATHS:INTERNAL=
-SDF_VERSION:INTERNAL=
+SDF_VERSION:INTERNAL=9.10.1
+SDF_sdformat9_INCLUDEDIR:INTERNAL=
+SDF_sdformat9_LIBDIR:INTERNAL=
+SDF_sdformat9_PREFIX:INTERNAL=
+SDF_sdformat9_VERSION:INTERNAL=
 SDF_sdformat_INCLUDEDIR:INTERNAL=
 SDF_sdformat_LIBDIR:INTERNAL=
 SDF_sdformat_PREFIX:INTERNAL=
@@ -984,6 +1004,7 @@ SDF_sdformat_VERSION:INTERNAL=
 //CMAKE_INSTALL_PREFIX during last run
 _GNUInstallDirs_LAST_CMAKE_INSTALL_PREFIX:INTERNAL=/home/ubuntu/catkin_ws/install
 __pkg_config_arguments_GAZEBO:INTERNAL=gazebo
+__pkg_config_arguments_SDF:INTERNAL=sdformat9
 __pkg_config_checked_GAZEBO:INTERNAL=1
 __pkg_config_checked_SDF:INTERNAL=1
 //ADVANCED property for variable: boost_headers_DIR
@@ -1052,5 +1073,9 @@ pkgcfg_lib_GAZEBO_sdformat9-ADVANCED:INTERNAL=1
 pkgcfg_lib_GAZEBO_tbb-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: pkgcfg_lib_GAZEBO_uuid
 pkgcfg_lib_GAZEBO_uuid-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: pkgcfg_lib_SDF_ignition-math6
+pkgcfg_lib_SDF_ignition-math6-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: pkgcfg_lib_SDF_sdformat9
+pkgcfg_lib_SDF_sdformat9-ADVANCED:INTERNAL=1
 prefix_result:INTERNAL=/usr/lib/x86_64-linux-gnu/pkgconfig/../../..//lib/x86_64-linux-gnu
 
