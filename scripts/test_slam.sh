@@ -1,12 +1,15 @@
 #!/bin/sh
-# Launch Gazebo world with robot
-xterm -e "source /opt/ros/noetic/setup.bash; source /home/ubuntu/catkin_ws/devel/setup.bash; roslaunch my_robot world.launch" &
+# Launch turtlebot inside your world
+xterm -e "source /opt/ros/noetic/setup.bash; source /home/ubuntu/catkin_ws/devel/setup.bash; roslaunch turtlebot_gazebo turtlebot_world.launch" &
 sleep 5
 
-# Launch SLAM (mapping)
-xterm -e "source /opt/ros/noetic/setup.bash; source /home/ubuntu/catkin_ws/devel/setup.bash; roslaunch my_robot mapping.launch" &
+# Launch gmapping SLAM
+xterm -e "source /opt/ros/noetic/setup.bash; source /home/ubuntu/catkin_ws/devel/setup.bash; roslaunch turtlebot_gazebo gmapping_demo.launch" &
 sleep 5
 
-# Launch teleop for keyboard control
-xterm -e "source /opt/ros/noetic/setup.bash; rosrun teleop_twist_keyboard teleop_twist_keyboard.py" &
+# Launch RViz navigation view
+xterm -e "source /opt/ros/noetic/setup.bash; source /home/ubuntu/catkin_ws/devel/setup.bash; roslaunch turtlebot_rviz_launchers view_navigation.launch" &
+sleep 5
 
+# Launch keyboard teleop
+xterm -e "source /opt/ros/noetic/setup.bash; source /home/ubuntu/catkin_ws/devel/setup.bash; roslaunch turtlebot_teleop keyboard_teleop.launch" &
