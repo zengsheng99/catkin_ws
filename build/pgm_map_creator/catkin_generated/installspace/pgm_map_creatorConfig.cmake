@@ -67,14 +67,14 @@ set(pgm_map_creator_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("FALSE" STREQUAL "TRUE")
-  set(pgm_map_creator_SOURCE_PREFIX /home/vboxuser/catkin_ws/src/pgm_map_creator)
-  set(pgm_map_creator_DEVEL_PREFIX /home/vboxuser/catkin_ws/devel)
+  set(pgm_map_creator_SOURCE_PREFIX /home/ubuntu/catkin_ws/src/pgm_map_creator)
+  set(pgm_map_creator_DEVEL_PREFIX /home/ubuntu/catkin_ws/devel)
   set(pgm_map_creator_INSTALL_PREFIX "")
   set(pgm_map_creator_PREFIX ${pgm_map_creator_DEVEL_PREFIX})
 else()
   set(pgm_map_creator_SOURCE_PREFIX "")
   set(pgm_map_creator_DEVEL_PREFIX "")
-  set(pgm_map_creator_INSTALL_PREFIX /home/vboxuser/catkin_ws/install)
+  set(pgm_map_creator_INSTALL_PREFIX /home/ubuntu/catkin_ws/install)
   set(pgm_map_creator_PREFIX ${pgm_map_creator_INSTALL_PREFIX})
 endif()
 
@@ -154,7 +154,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/vboxuser/catkin_ws/install/lib;/home/vboxuser/catkin_ws/devel/lib;/opt/ros/kinetic/lib)
+    foreach(path /home/ubuntu/catkin_ws/install/lib;/home/ubuntu/catkin_ws/devel/lib;/opt/ros/noetic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)
@@ -211,7 +211,7 @@ foreach(depend ${depends})
   _unpack_libraries_with_build_configuration(pgm_map_creator_LIBRARIES ${pgm_map_creator_LIBRARIES})
 
   _list_append_unique(pgm_map_creator_LIBRARY_DIRS ${${pgm_map_creator_dep}_LIBRARY_DIRS})
-  list(APPEND pgm_map_creator_EXPORTED_TARGETS ${${pgm_map_creator_dep}_EXPORTED_TARGETS})
+  _list_append_deduplicate(pgm_map_creator_EXPORTED_TARGETS ${${pgm_map_creator_dep}_EXPORTED_TARGETS})
 endforeach()
 
 set(pkg_cfg_extras "")

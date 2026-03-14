@@ -7,4 +7,4 @@
 # new environment variables
 
 # modified environment variables
-export PWD='/home/vboxuser/catkin_ws/build'
+export PWD='/home/ubuntu/catkin_ws/build'

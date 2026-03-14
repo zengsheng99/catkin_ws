@@ -1,0 +1,13 @@
+[ 37%] Built target collision_map_creator_msgs
+[ 41%] Building CXX object pgm_map_creator/CMakeFiles/collision_map_creator.dir/src/collision_map_creator.cc.o
+Base path: /home/ubuntu/catkin_ws
+Source space: /home/ubuntu/catkin_ws/src
+Build space: /home/ubuntu/catkin_ws/build
+Devel space: /home/ubuntu/catkin_ws/devel
+Install space: /home/ubuntu/catkin_ws/install
+####
+#### Running command: "make cmake_check_build_system" in "/home/ubuntu/catkin_ws/build"
+####
+####
+#### Running command: "make -j1" in "/home/ubuntu/catkin_ws/build"
+####

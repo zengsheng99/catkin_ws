@@ -1,4 +1,4 @@
-prefix=/home/vboxuser/catkin_ws/devel
+prefix=/home/ubuntu/catkin_ws/devel
 
 Name: first_package
 Description: Description of first_package

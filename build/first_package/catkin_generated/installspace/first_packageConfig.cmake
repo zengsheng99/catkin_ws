@@ -67,14 +67,14 @@ set(first_package_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("FALSE" STREQUAL "TRUE")
-  set(first_package_SOURCE_PREFIX /home/vboxuser/catkin_ws/src/first_package)
-  set(first_package_DEVEL_PREFIX /home/vboxuser/catkin_ws/devel)
+  set(first_package_SOURCE_PREFIX /home/ubuntu/catkin_ws/src/first_package)
+  set(first_package_DEVEL_PREFIX /home/ubuntu/catkin_ws/devel)
   set(first_package_INSTALL_PREFIX "")
   set(first_package_PREFIX ${first_package_DEVEL_PREFIX})
 else()
   set(first_package_SOURCE_PREFIX "")
   set(first_package_DEVEL_PREFIX "")
-  set(first_package_INSTALL_PREFIX /home/vboxuser/catkin_ws/install)
+  set(first_package_INSTALL_PREFIX /home/ubuntu/catkin_ws/install)
   set(first_package_PREFIX ${first_package_INSTALL_PREFIX})
 endif()
 
@@ -154,7 +154,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/vboxuser/catkin_ws/install/lib;/home/vboxuser/catkin_ws/devel/lib;/opt/ros/kinetic/lib)
+    foreach(path /home/ubuntu/catkin_ws/install/lib;/home/ubuntu/catkin_ws/devel/lib;/opt/ros/noetic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)
@@ -211,7 +211,7 @@ foreach(depend ${depends})
   _unpack_libraries_with_build_configuration(first_package_LIBRARIES ${first_package_LIBRARIES})
 
   _list_append_unique(first_package_LIBRARY_DIRS ${${first_package_dep}_LIBRARY_DIRS})
-  list(APPEND first_package_EXPORTED_TARGETS ${${first_package_dep}_EXPORTED_TARGETS})
+  _list_append_deduplicate(first_package_EXPORTED_TARGETS ${${first_package_dep}_EXPORTED_TARGETS})
 endforeach()
 
 set(pkg_cfg_extras "")

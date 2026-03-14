@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
+  "/home/ubuntu/catkin_ws/devel/share/roseus/ros/ball_chaser/manifest.l"
+  "/home/ubuntu/catkin_ws/devel/share/roseus/ros/ball_chaser/srv/DriveToTarget.l"
   "CMakeFiles/ball_chaser_generate_messages_eus"
-  "/home/vboxuser/catkin_ws/devel/share/roseus/ros/ball_chaser/srv/DriveToTarget.l"
-  "/home/vboxuser/catkin_ws/devel/share/roseus/ros/ball_chaser/manifest.l"
 )
 
 # Per-language clean rules from dependency scanning.

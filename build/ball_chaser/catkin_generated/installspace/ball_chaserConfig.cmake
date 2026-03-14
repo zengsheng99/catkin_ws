@@ -67,14 +67,14 @@ set(ball_chaser_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("FALSE" STREQUAL "TRUE")
-  set(ball_chaser_SOURCE_PREFIX /home/vboxuser/catkin_ws/src/ball_chaser)
-  set(ball_chaser_DEVEL_PREFIX /home/vboxuser/catkin_ws/devel)
+  set(ball_chaser_SOURCE_PREFIX /home/ubuntu/catkin_ws/src/ball_chaser)
+  set(ball_chaser_DEVEL_PREFIX /home/ubuntu/catkin_ws/devel)
   set(ball_chaser_INSTALL_PREFIX "")
   set(ball_chaser_PREFIX ${ball_chaser_DEVEL_PREFIX})
 else()
   set(ball_chaser_SOURCE_PREFIX "")
   set(ball_chaser_DEVEL_PREFIX "")
-  set(ball_chaser_INSTALL_PREFIX /home/vboxuser/catkin_ws/install)
+  set(ball_chaser_INSTALL_PREFIX /home/ubuntu/catkin_ws/install)
   set(ball_chaser_PREFIX ${ball_chaser_INSTALL_PREFIX})
 endif()
 
@@ -154,7 +154,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/vboxuser/catkin_ws/install/lib;/home/vboxuser/catkin_ws/devel/lib;/opt/ros/kinetic/lib)
+    foreach(path /home/ubuntu/catkin_ws/install/lib;/home/ubuntu/catkin_ws/devel/lib;/opt/ros/noetic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)
@@ -211,7 +211,7 @@ foreach(depend ${depends})
   _unpack_libraries_with_build_configuration(ball_chaser_LIBRARIES ${ball_chaser_LIBRARIES})
 
   _list_append_unique(ball_chaser_LIBRARY_DIRS ${${ball_chaser_dep}_LIBRARY_DIRS})
-  list(APPEND ball_chaser_EXPORTED_TARGETS ${${ball_chaser_dep}_EXPORTED_TARGETS})
+  _list_append_deduplicate(ball_chaser_EXPORTED_TARGETS ${${ball_chaser_dep}_EXPORTED_TARGETS})
 endforeach()
 
 set(pkg_cfg_extras "ball_chaser-msg-extras.cmake")
