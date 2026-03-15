@@ -1,15 +1,11 @@
 #!/bin/sh
-# Launch turtlebot inside your world
-xterm -hold -e "source /opt/ros/noetic/setup.bash; source /home/ubuntu/catkin_ws/devel/setup.bash; roslaunch turtlebot_gazebo turtlebot_world.launch" &
-sleep 5
+export TURTLEBOT_3D_SENSOR=kinect
+export GAZEBO_PLUGIN_PATH=/home/ubuntu/catkin_ws/devel/lib:/opt/ros/noetic/lib
 
-# Launch gmapping SLAM
-xterm -hold -e "source /opt/ros/noetic/setup.bash; source /home/ubuntu/catkin_ws/devel/setup.bash; roslaunch turtlebot_gazebo gmapping_demo.launch" &
+xterm -hold -e "source /opt/ros/noetic/setup.bash; source /home/ubuntu/catkin_ws/devel/setup.bash; export TURTLEBOT_3D_SENSOR=kinect; export GAZEBO_PLUGIN_PATH=/home/ubuntu/catkin_ws/devel/lib:/opt/ros/noetic/lib; roslaunch turtlebot_gazebo turtlebot_world.launch" &
 sleep 5
-
-# Launch RViz navigation view
-xterm -hold -e "source /opt/ros/noetic/setup.bash; source /home/ubuntu/catkin_ws/devel/setup.bash; roslaunch turtlebot_rviz_launchers view_navigation.launch" &
+xterm -hold -e "source /opt/ros/noetic/setup.bash; source /home/ubuntu/catkin_ws/devel/setup.bash; export TURTLEBOT_3D_SENSOR=kinect; export GAZEBO_PLUGIN_PATH=/home/ubuntu/catkin_ws/devel/lib:/opt/ros/noetic/lib; roslaunch turtlebot_gazebo gmapping_demo.launch" &
 sleep 5
-
-# Launch keyboard teleop
-xterm -hold -e "source /opt/ros/noetic/setup.bash; source /home/ubuntu/catkin_ws/devel/setup.bash; roslaunch turtlebot_teleop keyboard_teleop.launch" &
+xterm -hold -e "source /opt/ros/noetic/setup.bash; source /home/ubuntu/catkin_ws/devel/setup.bash; export TURTLEBOT_3D_SENSOR=kinect; export GAZEBO_PLUGIN_PATH=/home/ubuntu/catkin_ws/devel/lib:/opt/ros/noetic/lib; roslaunch turtlebot_rviz_launchers view_navigation.launch" &
+sleep 5
+xterm -hold -e "source /opt/ros/noetic/setup.bash; source /home/ubuntu/catkin_ws/devel/setup.bash; export TURTLEBOT_3D_SENSOR=kinect; export GAZEBO_PLUGIN_PATH=/home/ubuntu/catkin_ws/devel/lib:/opt/ros/noetic/lib; roslaunch turtlebot_teleop keyboard_teleop.launch" &
