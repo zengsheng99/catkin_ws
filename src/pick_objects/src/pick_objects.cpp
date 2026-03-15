@@ -36,7 +36,7 @@ int main(int argc, char** argv) {
   // 2x2 grid around spawn (-4, -4), 2-unit offsets
   // NE → NW → SW → SE
   // NE: pickup zone
-  if (!sendGoal(ac, -2.0, -2.0, "pickup zone (NE)"))
+  if (!sendGoal(ac, -4.0, 5.0, "pickup zone"))
     return 1;
   ROS_INFO("Waiting 5 seconds at pickup zone...");
   ros::Duration(5.0).sleep();
