@@ -1,6 +1,6 @@
 <launch>
   <node name="move_base" pkg="move_base" type="move_base" respawn="false" output="screen">
-    <remap from="cmd_vel" to="cmd_vel_mux/input/navi"/>
+    <remap from="cmd_vel" to="mobile_base/commands/velocity"/>
     <param name="base_global_planner" value="navfn/NavfnROS"/>
     <param name="base_local_planner" value="base_local_planner/TrajectoryPlannerROS"/>
     <rosparam file="$(find turtlebot_navigation)/param/costmap_common_params.yaml" command="load" ns="global_costmap"/>
