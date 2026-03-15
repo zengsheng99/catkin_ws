@@ -36,8 +36,11 @@ int main(int argc, char** argv) {
   ROS_INFO("Showing marker at pickup zone (-4.0, 5.0)");
   marker_pub.publish(marker);
 
-  // Step 2: Pause 5 seconds
-  ros::Duration(5.0).sleep();
+  // Step 2: Pause 5 seconds with countdown
+  for (int i = 5; i > 0; i--) {
+    ROS_INFO("Hiding marker in %d...", i);
+    ros::Duration(1.0).sleep();
+  }
 
   // Step 3: Hide the marker
   marker.action       = visualization_msgs::Marker::DELETE;
@@ -45,8 +48,11 @@ int main(int argc, char** argv) {
   marker_pub.publish(marker);
   ROS_INFO("Marker hidden");
 
-  // Step 4: Pause 5 seconds
-  ros::Duration(5.0).sleep();
+  // Step 4: Pause 5 seconds with countdown
+  for (int i = 5; i > 0; i--) {
+    ROS_INFO("Showing drop off marker in %d...", i);
+    ros::Duration(1.0).sleep();
+  }
 
   // Step 5: Publish marker at drop off zone
   marker.action          = visualization_msgs::Marker::ADD;
