@@ -17,4 +17,4 @@ rostopic pub -1 /initialpose geometry_msgs/PoseWithCovarianceStamped '{header: {
 sleep 2
 xterm -hold -e "source /opt/ros/noetic/setup.bash; source /home/ubuntu/catkin_ws/devel/setup.bash; rosrun pick_objects pick_objects" &
 sleep 2
-xterm -hold -e "source /opt/ros/noetic/setup.bash; source /home/ubuntu/catkin_ws/devel/setup.bash; rosrun add_markers add_markers" &
+xterm -hold -e "source /opt/ros/noetic/setup.bash; source /home/ubuntu/catkin_ws/devel/setup.bash; rosrun add_markers add_markers_service" &
