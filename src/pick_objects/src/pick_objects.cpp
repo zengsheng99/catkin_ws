@@ -33,26 +33,21 @@ int main(int argc, char** argv) {
     ROS_INFO("Waiting for the move_base action server to come up");
   }
 
-  // 2x2 grid around spawn (-4, -4), 2-unit offsets
-  // NE → NW → SW → SE
-  // NE: pickup zone
   if (!sendGoal(ac, -4.0, 5.0, "pickup zone"))
     return 1;
   ROS_INFO("Waiting 5 seconds at pickup zone...");
   ros::Duration(5.0).sleep();
 
-  // NW
-  sendGoal(ac, -6.0, -2.0, "waypoint NW");
+  // sendGoal(ac, -5.0, 5.0, "2nd goal");
 
-  // SW: drop off zone
-  if (!sendGoal(ac, -6.0, -6.0, "drop off zone (SW)"))
+  // drop off zone
+  if (!sendGoal(ac, -4.0, 4.0, "drop off zone (home)"))
     return 1;
   ROS_INFO("Waiting 5 seconds at drop off zone...");
   ros::Duration(5.0).sleep();
 
-  // SE
-  sendGoal(ac, -2.0, -6.0, "waypoint SE");
+  // sendGoal(ac, -6.0, 5.0, "endpoint");
 
-  ROS_INFO("2x2 movement sequence complete.");
+  ROS_INFO("Movement sequence complete.");
   return 0;
 }

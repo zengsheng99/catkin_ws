@@ -5,7 +5,7 @@
 
 // Goal positions in map frame (must match pick_objects.cpp)
 const double PICKUP_X  = -4.0, PICKUP_Y  = 5.0;
-const double DROPOFF_X = -6.0, DROPOFF_Y = -6.0;
+const double DROPOFF_X = -4.0, DROPOFF_Y = 4.0;
 const double THRESHOLD = 0.5;
 
 enum State { PICKUP_SHOW, PICKED_UP, DROPOFF_SHOW, DONE };
