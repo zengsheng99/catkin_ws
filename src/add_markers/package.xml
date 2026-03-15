@@ -2,7 +2,7 @@
 <package format="2">
   <name>add_markers</name>
   <version>0.0.1</version>
-  <description>Publishes virtual object markers in RViz for pickup and drop off zones</description>
+  <description>Publishes virtual object markers tracking robot odometry</description>
   <maintainer email="user@todo.todo">user</maintainer>
   <license>MIT</license>
 
@@ -10,7 +10,9 @@
 
   <build_depend>roscpp</build_depend>
   <build_depend>visualization_msgs</build_depend>
+  <build_depend>nav_msgs</build_depend>
 
   <exec_depend>roscpp</exec_depend>
   <exec_depend>visualization_msgs</exec_depend>
+  <exec_depend>nav_msgs</exec_depend>
 </package>
