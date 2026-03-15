@@ -1,6 +1,6 @@
 #include <ros/ros.h>
 #include <visualization_msgs/Marker.h>
-#include <nav_msgs/Odometry.h>
+#include <geometry_msgs/PoseWithCovarianceStamped.h>
 #include <cmath>
 
 // Must match pick_objects.cpp goals
@@ -40,7 +40,7 @@ void publishMarker(double x, double y, uint32_t action) {
   marker_pub.publish(marker);
 }
 
-void odomCallback(const nav_msgs::Odometry::ConstPtr& msg) {
+void amclCallback(const geometry_msgs::PoseWithCovarianceStamped::ConstPtr& msg) {
   if (state == DONE) return;
 
   double x = msg->pose.pose.position.x;
@@ -74,7 +74,7 @@ int main(int argc, char** argv) {
   ros::NodeHandle n;
 
   marker_pub = n.advertise<visualization_msgs::Marker>("visualization_marker", 1);
-  ros::Subscriber odom_sub = n.subscribe("/odom", 10, odomCallback);
+  ros::Subscriber amcl_sub = n.subscribe("/amcl_pose", 10, amclCallback);
 
   // Wait for rviz to subscribe
   while (marker_pub.getNumSubscribers() < 1) {

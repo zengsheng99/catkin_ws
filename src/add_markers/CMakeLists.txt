@@ -4,7 +4,7 @@ project(add_markers)
 find_package(catkin REQUIRED COMPONENTS
   roscpp
   visualization_msgs
-  nav_msgs
+  geometry_msgs
 )
 
 catkin_package()
