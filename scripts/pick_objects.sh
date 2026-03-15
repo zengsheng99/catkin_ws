@@ -10,3 +10,5 @@ sleep 5
 xterm -hold -e "source /opt/ros/noetic/setup.bash; source /home/ubuntu/catkin_ws/devel/setup.bash; export TURTLEBOT_3D_SENSOR=kinect; export TURTLEBOT_GAZEBO_MAP_FILE=/home/ubuntu/catkin_ws/src/my_robot/maps/map.yaml; roslaunch turtlebot_gazebo amcl_demo.launch initial_pose_x:=-4 initial_pose_y:=4" &
 sleep 5
 xterm -hold -e "source /opt/ros/noetic/setup.bash; source /home/ubuntu/catkin_ws/devel/setup.bash; roslaunch turtlebot_rviz_launchers view_navigation.launch" &
+sleep 5
+xterm -hold -e "source /opt/ros/noetic/setup.bash; source /home/ubuntu/catkin_ws/devel/setup.bash; rosrun pick_objects pick_objects" &
