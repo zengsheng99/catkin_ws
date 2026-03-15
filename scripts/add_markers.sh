@@ -12,3 +12,8 @@ sleep 5
 xterm -hold -e "source /opt/ros/noetic/setup.bash; source /home/ubuntu/catkin_ws/devel/setup.bash; roslaunch turtlebot_rviz_launchers view_navigation.launch" &
 sleep 5
 xterm -hold -e "source /opt/ros/noetic/setup.bash; source /home/ubuntu/catkin_ws/devel/setup.bash; rosrun add_markers add_markers" &
+sleep 5
+source /opt/ros/noetic/setup.bash
+source /home/ubuntu/catkin_ws/devel/setup.bash
+rostopic pub -1 /initialpose geometry_msgs/PoseWithCovarianceStamped '{header: {frame_id: "map"}, pose: {pose: {position: {x: -4, y: 4, z: 0.0}, orientation: {x: 0.0, y: 0.0, z: -0.7140286376412575, w: 0.7001164936124343}}, covariance: [0.25,0,0,0,0,0,0,0.25,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0.06853892326654787]}}'
+sleep 2
