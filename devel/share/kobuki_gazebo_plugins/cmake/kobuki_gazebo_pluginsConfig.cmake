@@ -67,7 +67,7 @@ set(kobuki_gazebo_plugins_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("TRUE" STREQUAL "TRUE")
-  set(kobuki_gazebo_plugins_SOURCE_PREFIX /home/ubuntu/catkin_ws/src/kobuki_desktop/kobuki_gazebo_plugins)
+  set(kobuki_gazebo_plugins_SOURCE_PREFIX /home/ubuntu/catkin_ws/src/kobuki_gazebo_plugins)
   set(kobuki_gazebo_plugins_DEVEL_PREFIX /home/ubuntu/catkin_ws/devel)
   set(kobuki_gazebo_plugins_INSTALL_PREFIX "")
   set(kobuki_gazebo_plugins_PREFIX ${kobuki_gazebo_plugins_DEVEL_PREFIX})
@@ -91,9 +91,9 @@ endif()
 # flag project as catkin-based to distinguish if a find_package()-ed project is a catkin project
 set(kobuki_gazebo_plugins_FOUND_CATKIN_PROJECT TRUE)
 
-if(NOT "/home/ubuntu/catkin_ws/src/kobuki_desktop/kobuki_gazebo_plugins/include " STREQUAL " ")
+if(NOT "/home/ubuntu/catkin_ws/src/kobuki_gazebo_plugins/include " STREQUAL " ")
   set(kobuki_gazebo_plugins_INCLUDE_DIRS "")
-  set(_include_dirs "/home/ubuntu/catkin_ws/src/kobuki_desktop/kobuki_gazebo_plugins/include")
+  set(_include_dirs "/home/ubuntu/catkin_ws/src/kobuki_gazebo_plugins/include")
   if(NOT "https://github.com/yujinrobot/kobuki_desktop/issues " STREQUAL " ")
     set(_report "Check the issue tracker 'https://github.com/yujinrobot/kobuki_desktop/issues' and consider creating a ticket if the problem has not been reported yet.")
   elseif(NOT "http://ros.org/wiki/kobuki_gazebo_plugins " STREQUAL " ")
@@ -110,7 +110,7 @@ if(NOT "/home/ubuntu/catkin_ws/src/kobuki_desktop/kobuki_gazebo_plugins/include 
         message(FATAL_ERROR "Project 'kobuki_gazebo_plugins' specifies '${idir}' as an include dir, which is not found.  It does not exist in '${include}'.  ${_report}")
       endif()
     else()
-      message(FATAL_ERROR "Project 'kobuki_gazebo_plugins' specifies '${idir}' as an include dir, which is not found.  It does neither exist as an absolute directory nor in '/home/ubuntu/catkin_ws/src/kobuki_desktop/kobuki_gazebo_plugins/${idir}'.  ${_report}")
+      message(FATAL_ERROR "Project 'kobuki_gazebo_plugins' specifies '${idir}' as an include dir, which is not found.  It does neither exist as an absolute directory nor in '/home/ubuntu/catkin_ws/src/kobuki_gazebo_plugins/${idir}'.  ${_report}")
     endif()
     _list_append_unique(kobuki_gazebo_plugins_INCLUDE_DIRS ${include})
   endforeach()
@@ -118,7 +118,7 @@ endif()
 
 set(libraries "gazebo_ros_kobuki")
 foreach(library ${libraries})
-  # keep build configuration keywords, target names and absolute libraries as-is
+  # keep build configuration keywords, generator expressions, target names, and absolute libraries as-is
   if("${library}" MATCHES "^(debug|optimized|general)$")
     list(APPEND kobuki_gazebo_plugins_LIBRARIES ${library})
   elseif(${library} MATCHES "^-l")
@@ -146,6 +146,8 @@ foreach(library ${libraries})
       target_link_options("${interface_target_name}" INTERFACE "${library}")
     endif()
     list(APPEND kobuki_gazebo_plugins_LIBRARIES "${interface_target_name}")
+  elseif(${library} MATCHES "^\\$<")
+    list(APPEND kobuki_gazebo_plugins_LIBRARIES ${library})
   elseif(TARGET ${library})
     list(APPEND kobuki_gazebo_plugins_LIBRARIES ${library})
   elseif(IS_ABSOLUTE ${library})
@@ -154,7 +156,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/ubuntu/catkin_ws/devel/lib;/home/ubuntu/catkin_ws/devel/lib;/opt/ros/noetic/lib)
+    foreach(path /home/ubuntu/catkin_ws/devel/lib;/opt/ros/noetic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)

@@ -118,6 +118,21 @@ endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
+   "/home/ubuntu/catkin_ws/install/setup.fish;/home/ubuntu/catkin_ws/install/local_setup.fish")
+  if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
+    message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
+  endif()
+  if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
+    message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
+  endif()
+file(INSTALL DESTINATION "/home/ubuntu/catkin_ws/install" TYPE FILE FILES
+    "/home/ubuntu/catkin_ws/build/catkin_generated/installspace/setup.fish"
+    "/home/ubuntu/catkin_ws/build/catkin_generated/installspace/local_setup.fish"
+    )
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
    "/home/ubuntu/catkin_ws/install/.rosinstall")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
@@ -152,9 +167,10 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   include("/home/ubuntu/catkin_ws/build/slam_gmapping/gmapping/cmake_install.cmake")
   include("/home/ubuntu/catkin_ws/build/turtlebot_interactions/turtlebot_interactive_markers/cmake_install.cmake")
   include("/home/ubuntu/catkin_ws/build/turtlebot/turtlebot_teleop/cmake_install.cmake")
-  include("/home/ubuntu/catkin_ws/build/kobuki_desktop/kobuki_gazebo_plugins/cmake_install.cmake")
-  include("/home/ubuntu/catkin_ws/build/kobuki/kobuki_description/cmake_install.cmake")
+  include("/home/ubuntu/catkin_ws/build/kobuki_gazebo_plugins/cmake_install.cmake")
+  include("/home/ubuntu/catkin_ws/build/kobuki_description/cmake_install.cmake")
   include("/home/ubuntu/catkin_ws/build/turtlebot/turtlebot_description/cmake_install.cmake")
+  include("/home/ubuntu/catkin_ws/build/yocs_cmd_vel_mux/cmake_install.cmake")
 
 endif()
 
