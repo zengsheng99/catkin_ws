@@ -50,10 +50,18 @@
   <!--   <doc_depend>doxygen</doc_depend> -->
   <buildtool_depend>catkin</buildtool_depend>
 
+  <exec_depend>xacro</exec_depend>
+  <exec_depend>gazebo_ros</exec_depend>
+  <exec_depend>joint_state_publisher</exec_depend>
+  <exec_depend>robot_state_publisher</exec_depend>
+  <exec_depend>rviz</exec_depend>
+  <exec_depend>map_server</exec_depend>
+  <exec_depend>amcl</exec_depend>
+  <exec_depend>move_base</exec_depend>
+  <exec_depend>navfn</exec_depend>
+  <exec_depend>base_local_planner</exec_depend>
+  <exec_depend>rtabmap_slam</exec_depend>
 
-  <!-- The export tag contains other, unspecified, tags -->
   <export>
-    <!-- Other tools can request additional information be placed here -->
-
   </export>
 </package>
